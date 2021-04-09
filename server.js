@@ -29,6 +29,11 @@ type Skill {
 type Meal {
   description: String! 
 }
+enum MealTime {
+  breakfast
+  lunch 
+  dinner
+}
 `)
 
 // Define A Resolver 
@@ -44,8 +49,8 @@ const root = {
     },
       getMeal: ({ time }) => {
         const allMeals = { breakfast: 'toast', lunch: 'noodles', dinner: 'pizza'}
-        const Meal: allMeals[time]
-        return { description: Meal}
+        const food = allMeals[time]
+        return { description: food}
       }
 }
 
